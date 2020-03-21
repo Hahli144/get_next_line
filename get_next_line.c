@@ -6,12 +6,12 @@
 /*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:36:30 by sadawi            #+#    #+#             */
-/*   Updated: 2019/11/05 17:54:04 by sadawi           ###   ########.fr       */
+/*   Updated: 2020/03/21 15:35:56 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft/libft.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -31,8 +31,8 @@ static int	extend_buf(int fd, char **buf)
 
 static void	fd_add(t_fd **buf, int fd)
 {
-	(*buf) = (t_fd*)malloc(sizeof(t_fd));
-	(*buf)->str = ft_strdup("");
+	(*buf) = (t_fd*)ft_memalloc(sizeof(t_fd));
+	(*buf)->str = ft_strnew(0);
 	(*buf)->fd = fd;
 	(*buf)->next = NULL;
 }
